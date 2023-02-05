@@ -1,5 +1,6 @@
 import React, { memo, useEffect, useMemo, useState } from 'react';
 import { DateTime } from 'luxon';
+import LaunchIcon from '@mui/icons-material/Launch';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -62,7 +63,10 @@ const columns: GridColDef<Entry>[] = [
   {
     field: 'link',
     headerName: 'Link',
-    flex: 3,
+    flex: 1,
+    renderCell: (params) => {
+      return <a href={params.row.link} target="_blank" rel="noreferrer"><LaunchIcon fontSize='small' /></a>;
+    },
   },
 ];
 

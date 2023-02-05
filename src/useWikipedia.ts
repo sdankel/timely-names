@@ -7,6 +7,10 @@ interface BirthPage {
   normalizedtitle: string;
   title: string;
   description: string;
+  content_urls: {
+    desktop: { page: string; };
+    mobile: { page: string; };
+  };
 }
 interface BirthEntry {
   text: string;
@@ -65,7 +69,7 @@ const useWikipedia = (date: DateTime) => {
               year,
               significance: 'Born',
               description: text,
-              link: 'todo.com',
+              link: pages[0].content_urls.desktop.page,
             };
           });
 
