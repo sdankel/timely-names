@@ -30,7 +30,6 @@ const DateInput = ({ setDate, date }: DatePickerProps) => {
             newValue && setDate(newValue as unknown as DateTime);
           }}
           renderInput={(params: any) => {
-            console.log(params);
             return <TextField {...params} helperText={null} />;
           }}
         />

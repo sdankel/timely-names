@@ -79,9 +79,11 @@ const ResultsTable = ({ date }: ResultsTableProps) => {
   const firstNames = data.map((entry) => entry.firstName);
 
   const genderResult = useFirstNameGender(firstNames);
-  const meaningResult = useGoogleSearch(firstNames.slice(0, 1));
+  const meaningResult = useGoogleSearch(firstNames.slice(0, 10)); // todo
 
-  const rows = useMemo(() => {
+  console.log(`meaningResult: `, meaningResult);
+
+  const rows: Entry[] | undefined = useMemo(() => {
     if (!loading && !!genderResult) {
       return data
         .filter((d) => !!genderResult[d.firstName])
@@ -90,11 +92,11 @@ const ResultsTable = ({ date }: ResultsTableProps) => {
             ...d,
             id: idx + 1,
             gender: genderResult[d.firstName][0]!,
-            meaningResult: meaningResult ? [d.firstName] : undefined,
+            meaning: meaningResult ? meaningResult[d.firstName] : undefined,          
           };
         });
     }
-  }, [genderResult, meaningResult, loading]);
+  }, [data, genderResult, meaningResult, loading]);
 
   if (error) {
     <div style={{ marginBottom: '2rem' }}>

@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Entry } from './ResultsTable';
 import { DateTime } from 'luxon';
 
+const MEANINGS: {[key: string]: string} = {};
+
 interface GoogleSearchResponse {
   items: {
     snippet: 'string';
@@ -25,6 +27,11 @@ const useGoogleSearch = (names: string[]) => {
 
   useEffect(() => {
     names.forEach((name) => {
+
+      if (MEANINGS[name]) {
+        return;
+      }
+
       //
       const url = `https://customsearch.googleapis.com/customsearch/v1/siterestrict?cx=${searchEngineId}&q=${name}%20name%20meaning&key=${token}`;
 
@@ -42,9 +49,6 @@ const useGoogleSearch = (names: string[]) => {
                 return extractQuote ? extractQuote[0].replace(/"/g, '') : null;
               })
               .filter(notEmpty);
-
-            console.log(`meanings`, meanings);
-
             // const meaningSnippet = response.items.find((item) => {
             //   console.log(`item.snippet`, item.snippet);
             //   item.snippet.includes('"') || item.snippet.includes('&quot;');
@@ -54,7 +58,9 @@ const useGoogleSearch = (names: string[]) => {
 
             // const meaning = meaningSnippet?.match(/"([^\"]+)"/) ?? null;
             if (meanings[0]) {
+              MEANINGS[name] = meanings[0];
               setData({ ...data, [name]: meanings[0] });
+              console.log(`data:`, data);
             }
 
             // console.log(`Google meaning`, name, meaning[]);
@@ -79,9 +85,9 @@ const useGoogleSearch = (names: string[]) => {
           // setLoading(false);
         });
     });
-  }, [names.length]);
+  }, [data, names.length]);
 
-  return data;
+  return MEANINGS;
 };
 
 export default useGoogleSearch;
