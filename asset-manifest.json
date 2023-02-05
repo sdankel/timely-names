@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/www.timelynames.com/static/css/main.073c9b0a.css",
-    "main.js": "/www.timelynames.com/static/js/main.57e87501.js",
-    "static/js/787.0c960d67.chunk.js": "/www.timelynames.com/static/js/787.0c960d67.chunk.js",
-    "index.html": "/www.timelynames.com/index.html",
-    "main.073c9b0a.css.map": "/www.timelynames.com/static/css/main.073c9b0a.css.map",
-    "main.57e87501.js.map": "/www.timelynames.com/static/js/main.57e87501.js.map",
-    "787.0c960d67.chunk.js.map": "/www.timelynames.com/static/js/787.0c960d67.chunk.js.map"
+    "main.css": "/timelynames.com/static/css/main.073c9b0a.css",
+    "main.js": "/timelynames.com/static/js/main.5d10ba1b.js",
+    "static/js/787.0c960d67.chunk.js": "/timelynames.com/static/js/787.0c960d67.chunk.js",
+    "index.html": "/timelynames.com/index.html",
+    "main.073c9b0a.css.map": "/timelynames.com/static/css/main.073c9b0a.css.map",
+    "main.5d10ba1b.js.map": "/timelynames.com/static/js/main.5d10ba1b.js.map",
+    "787.0c960d67.chunk.js.map": "/timelynames.com/static/js/787.0c960d67.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.57e87501.js"
+    "static/js/main.5d10ba1b.js"
   ]
 }
